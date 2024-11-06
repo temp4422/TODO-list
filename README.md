@@ -1,3 +1,5 @@
+[TODO-list за дві години?! Кодимо з JUNIOR! | HTML, CSS, JS](https://www.youtube.com/watch?v=cPcbGa3-Xc8)
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
