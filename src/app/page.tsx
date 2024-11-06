@@ -1,9 +1,48 @@
+'use client'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 // prettier-ignore
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 
+// Form
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useForm } from 'react-hook-form'
+import { z } from 'zod'
+
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form'
+
 export default function Home() {
+  const formSchema = z.object({
+    username: z.string().min(2, {
+      message: 'Username must be at least 2 characters.',
+    }),
+  })
+
+  // // 1. Define your form.
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      username: '',
+    },
+  })
+
+  // 2. Define a submit handler.
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    // Do something with the form values.
+    // ✅ This will be type-safe and validated.
+    console.log(values)
+  }
+
+  // const form = useForm()
+
   return (
     <>
       <div className="container mx-auto max-w-[800px] h-auto bg-[#E2E2E2] p-4">
@@ -11,11 +50,12 @@ export default function Home() {
           <h1 className="text-4xl wheight-bold">Список справ</h1>
           <Input className="bg-white" />
           <p>category1 category2 category2 </p>
+
           <hr className="bg-[#999999] h-[2px] m-2" />
           <br />
         </header>
 
-        <main>
+        <main className="">
           <Card>
             <CardHeader>
               <CardDescription>Домашні справи</CardDescription>
@@ -44,6 +84,7 @@ export default function Home() {
           </Card>
 
           <hr className="bg-[#999999] h-[2px] m-2" />
+
           <div className="flex justify-end">
             <Button className="bg-[#FF6600]">
               <svg
@@ -58,6 +99,50 @@ export default function Home() {
               Додати справу
             </Button>
           </div>
+
+          <hr className="bg-[#999999] h-[2px] m-2" />
+
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+              <FormField
+                control={form.control}
+                name="username"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Username</FormLabel>
+                    <FormControl>
+                      <Input placeholder="shadcn" {...field} />
+                    </FormControl>
+                    <FormDescription>This is your public display name.</FormDescription>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <Button className="bg-[#FF6600]" type="submit">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clipPath="url(#clip0_3_460)">
+                    <path
+                      d="M8.99997 16.17L4.82997 12L3.40997 13.41L8.99997 19L21 7.00003L19.59 5.59003L8.99997 16.17Z"
+                      fill="white"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_3_460">
+                      <rect width="24" height="24" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+                Зберегти
+              </Button>
+            </form>
+          </Form>
         </main>
 
         <footer></footer>
