@@ -82,7 +82,7 @@ export default function Home() {
           <Card>
             <CardHeader>
               <CardDescription className="flex justify-end relative">
-                <p className="absolute left-0 ">Домашні справи</p>
+                <p className="absolute left-0 text-accent">Домашні справи</p>
                 <button>
                   <svg
                     width="24"
@@ -126,7 +126,7 @@ export default function Home() {
               <p>Скласти список необхідних продуктів та відвідати магазин.</p>
             </CardContent>
             <CardFooter>
-              <Button className="bg-[#FF6600]">
+              <Button className="bg-accent">
                 <svg
                   width="20"
                   height="20"
@@ -147,7 +147,7 @@ export default function Home() {
           <hr className="bg-[#999999] h-[2px] m-2" />
 
           <div className="flex justify-end">
-            <Button className="bg-[#FF6600]">
+            <Button className="bg-accent">
               <svg
                 width="14"
                 height="14"
@@ -220,7 +220,7 @@ export default function Home() {
                   </svg>
                   Скасувати
                 </Button>
-                <Button className="bg-[#FF6600]" type="submit">
+                <Button className="bg-accent" type="submit">
                   <svg
                     width="24"
                     height="24"
