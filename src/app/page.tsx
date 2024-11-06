@@ -49,7 +49,7 @@ export default function Home() {
         <header>
           <h1 className="text-4xl wheight-bold">Список справ</h1>
           <Input className="bg-white" />
-          <p>category1 category2 category2 </p>
+          <p className="text-xs">домашні справи робота фітнес</p>
 
           <hr className="bg-[#999999] h-[2px] m-2" />
           <br />
@@ -102,10 +102,11 @@ export default function Home() {
 
           <hr className="bg-[#999999] h-[2px] m-2" />
 
+          <h2>Категорія</h2>
+          <p className="text-xs">домашні справи робота фітнес</p>
+
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 ">
-              <h2>Категорія</h2>
-              <p className="text-xs">Домашні справи робота фітнес</p>
               <FormField
                 control={form.control}
                 name="username"
@@ -113,14 +114,27 @@ export default function Home() {
                   <FormItem>
                     <FormLabel>Заголовок</FormLabel>
                     <FormControl>
-                      <Input placeholder="shadcn" {...field} className="bg-white" />
+                      <Input placeholder="" {...field} className="bg-white" />
                     </FormControl>
-                    <FormDescription>This is your public display name.</FormDescription>
+                    {/* <FormDescription>This is your public display name.</FormDescription> */}
                     <FormMessage />
                   </FormItem>
                 )}
               />
 
+              <FormField
+                control={form.control}
+                name="username"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Примітка</FormLabel>
+                    <FormControl>
+                      <Input placeholder="" {...field} className="bg-white h-28" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
               {/* Buttons cancel/save */}
               <div className="flex justify-end gap-1">
                 <Button className="bg-red-500" type="submit">
