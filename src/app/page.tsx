@@ -9,12 +9,13 @@ export default function Home() {
           <h1 className="text-4xl wheight-bold">Список справ</h1>
           <Input className="bg-white" />
           <p>list1 list2 list2 </p>
-          <hr className="w-full h-1 bg-black" />
+          <hr className="bg-[#999999] h-[2px] m-2" />
           <br />
         </header>
 
         <main>
           list-item1 list-item 2 list-item3
+          <hr className="bg-[#999999] h-[2px] m-2" />
           <div className="flex justify-end">
             <Button className="bg-[#FF6600]">
               <svg
@@ -31,7 +32,7 @@ export default function Home() {
           </div>
         </main>
 
-        <footer>footer</footer>
+        <footer></footer>
       </div>
     </>
   )
