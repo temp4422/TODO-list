@@ -8,30 +8,29 @@ import { Input } from '@/components/ui/input'
 // prettier-ignore
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage} from '@/components/ui/form'
 
-const formSchema = z.object({
-  username: z.string().min(2, {
-    message: 'Username must be at least 2 characters.',
-  }),
-})
-
-// // 1. Define your form.
-const form = useForm<z.infer<typeof formSchema>>({
-  resolver: zodResolver(formSchema),
-  defaultValues: {
-    username: '',
-  },
-})
-
-// 2. Define a submit handler.
-function onSubmit(values: z.infer<typeof formSchema>) {
-  // Do something with the form values.
-  // ✅ This will be type-safe and validated.
-  console.log(values)
-}
-
-// const form = useForm()
-
 export default function AddTaskForm() {
+  const formSchema = z.object({
+    username: z.string().min(2, {
+      message: 'Username must be at least 2 characters.',
+    }),
+  })
+
+  // // 1. Define your form.
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      username: '',
+    },
+  })
+
+  // 2. Define a submit handler.
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    // Do something with the form values.
+    // ✅ This will be type-safe and validated.
+    console.log(values)
+  }
+
+  // const form = useForm()
   return (
     <div className="">
       <hr className="bg-[#999999] h-[2px] m-2" />

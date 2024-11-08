@@ -4,8 +4,8 @@ import { Button } from '@/components/ui/button'
 // prettier-ignore
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 
-import { AddTaskButton } from '@components/addTaskButton.tsx'
-// import { AddTaskForm } from '@components/addTaskForm.tsx'
+import AddTaskButton from '../components/AddTaskButton'
+import AddTaskForm from '../components/AddTaskForm'
 
 export default function Home() {
   return (
@@ -188,7 +188,7 @@ export default function Home() {
           <AddTaskButton />
 
           {/* Form for adding new task */}
-          {/* <AddTaskForm /> */}
+          <AddTaskForm />
         </main>
 
         <footer></footer>

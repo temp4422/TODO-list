@@ -1,16 +1,20 @@
 import { Button } from '@/components/ui/button'
 import React from 'react'
 
-// export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+// type ButtonProps = {
 //   label: string
+//   onClick: () => void
 // }
 
-// export interface ButtonProps {
-//   className?: string
-//   onClick?: () => void
+// const ButtonA: React.FC<ButtonProps> = ({ label, onClick }) => {
+//   return (
+//     <button onClick={onClick} className="button">
+//       {label}
+//     </button>
+//   )
 // }
 
-export type AddTaskButtonType = {}
+// export default ButtonA
 
 export default function AddTaskButton() {
   return (
