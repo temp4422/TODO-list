@@ -1,21 +1,6 @@
 import { Button } from '@/components/ui/button'
 import React from 'react'
 
-// type ButtonProps = {
-//   label: string
-//   onClick: () => void
-// }
-
-// const ButtonA: React.FC<ButtonProps> = ({ label, onClick }) => {
-//   return (
-//     <button onClick={onClick} className="button">
-//       {label}
-//     </button>
-//   )
-// }
-
-// export default ButtonA
-
 export default function AddTaskButton() {
   return (
     <div className="flex justify-end my-2">
