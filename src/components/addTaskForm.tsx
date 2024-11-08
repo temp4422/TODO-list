@@ -33,10 +33,10 @@ export default function AddTaskForm() {
   return (
     <div className="">
       <hr className="bg-[#999999] h-[2px] m-2" />
-      <h2>Категорія</h2>
+      {/* <h2>Категорія</h2>
       <p className="text-xs flex">
         <span className="text-accent">домашні справи &nbsp; </span> робота фітнес
-      </p>
+      </p> */}
 
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="mt-6">
