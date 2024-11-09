@@ -67,7 +67,7 @@ export default function Home() {
           <ul id="cards">
             {taskList.map((card) => (
               <CardBoilerplate
-    @        key={card.id}
+                key={card.id}
                 id={card.id}
                 title={card.title}
                 content={card.content}
