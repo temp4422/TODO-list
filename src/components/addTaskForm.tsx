@@ -5,15 +5,9 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 
 // prettier-ignore
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage} from '@/components/ui/form'
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from '@/components/ui/form'
 
-export default function AddTaskForm({
-  addTask,
-  formActivation,
-}: {
-  addTask: any
-  formActivation: any
-}) {
+export default function AddTaskForm({ addTask, formActivation }: any) {
   const formSchema = z.object({
     title: z.string().min(1, {
       message: 'title must must not be empty.',
