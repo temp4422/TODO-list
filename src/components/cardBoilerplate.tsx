@@ -2,41 +2,17 @@ import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 // prettier-ignore
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import { MyCardType } from '@/app/page'
+import { MyTaskType } from '@/app/page'
 
-export default function CardBoilerplate(card: MyCardType) {
+export default function CardBoilerplate(task: MyTaskType) {
   return (
-    <Card data-id={card.id} className={cn(`${card.active ? 'opacity-100' : 'opacity-50'}`, 'mb-4')}>
+    <Card data-id={task.id} className={cn(`${task.active ? 'opacity-100' : 'opacity-50'}`, 'mb-4')}>
       <CardHeader>
         <CardDescription className="flex justify-end relative mb-2">
-          {/* <p className="absolute left-0 text-accent text-xs font-bold border-2 p-1 border-accent">
-            домашні справи
-          </p> */}
-          <button>
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g clipPath="url(#clip0_2054_47)">
-                <path
-                  d="M3 17.25V21H6.75L17.81 9.94L14.06 6.19L3 17.25ZM20.71 7.04C21.1 6.65 21.1 6.02 20.71 5.63L18.37 3.29C17.98 2.9 17.35 2.9 16.96 3.29L15.13 5.12L18.88 8.87L20.71 7.04Z"
-                  fill="#333333"
-                />
-              </g>
-              <defs>
-                <clipPath id="clip0_2054_47">
-                  <rect width="24" height="24" fill="white" />
-                </clipPath>
-              </defs>
-            </svg>
-          </button>
-
           <button
+            className="hover:bg-gray-100 p-2 rounded-full"
             onClick={() => {
-              card.deleteTask(card.id)
+              task.deleteTask(task.id)
             }}
           >
             <svg
@@ -54,19 +30,19 @@ export default function CardBoilerplate(card: MyCardType) {
           </button>
         </CardDescription>
         {/* <CardTitle className="text-xl">Купити продукти</CardTitle> */}
-        <CardTitle className={cn(`${card.active ? '' : 'line-through'}`, 'text-xl')}>
-          {card.title}
+        <CardTitle className={cn(`${task.active ? '' : 'line-through'}`, 'text-xl')}>
+          {task.title}
         </CardTitle>
       </CardHeader>
       <CardContent>
         {/* <p>Скласти список необхідних продуктів та відвідати магазин.</p> */}
-        <p className={cn(`${card.active ? '' : 'line-through'}`)}>{card.content}</p>
+        <p className={cn(`${task.active ? '' : 'line-through'}`)}>{task.content}</p>
       </CardContent>
       <CardFooter>
         <Button
           className="bg-accent"
           onClick={() => {
-            card.setActive(card.id)
+            task.setActive(task.id)
           }}
         >
           <svg
@@ -81,7 +57,7 @@ export default function CardBoilerplate(card: MyCardType) {
               fill="white"
             />
           </svg>
-          Завершити
+          {task.active ? 'Завершити' : 'Відновити'}
         </Button>
       </CardFooter>
     </Card>

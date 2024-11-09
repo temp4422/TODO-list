@@ -21,7 +21,7 @@ const sampleTaskList = [
   },
 ]
 
-export type MyCardType = {
+export type MyTaskType = {
   id: number
   title: string
   content: string
@@ -32,7 +32,7 @@ export type MyCardType = {
 
 export default function Home() {
   const [taskList, setTaskList] = useState(sampleTaskList)
-  function addTask({ id, title, content, active }: MyCardType) {
+  function addTask({ id, title, content, active }: MyTaskType) {
     setTaskList([...taskList, { id, title, content, active }])
   }
 
