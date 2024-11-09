@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
   distDir: 'docs',
 
   // Deploy a Next.js application under a sub-path of a domain
-  basePath: '/docs',
+  // basePath: '/docs',
 }
 
 export default nextConfig
