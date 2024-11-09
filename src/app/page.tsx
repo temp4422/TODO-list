@@ -23,7 +23,6 @@ const sampleTaskList = [
 
 export default function Home() {
   const [taskList, setTaskList] = useState(sampleTaskList)
-
   const addTask = (
     // prettier-ignore
     { id, title, content, active }: { id: number; title: string; content: string, active: boolean }
@@ -37,6 +36,10 @@ export default function Home() {
     setTaskList([...taskList, newTask])
   }
 
+  // const [activeForm, setActiveForm] = useState(false)
+  // const formActivation = (activeForm: boolean) => {
+  //   setActiveForm(activeForm)
+  // }
   return (
     <>
       <div className="container mx-auto max-w-[800px] h-auto bg-[#E2E2E2] p-4">

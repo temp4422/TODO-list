@@ -39,7 +39,7 @@ export default function AddTaskForm({ addTask }: { addTask: any }) {
   }
 
   return (
-    <div className="">
+    <div>
       <hr className="bg-[#999999] h-[2px] m-2" />
       {/* <h2>Категорія</h2>
       <p className="text-xs flex">
@@ -55,12 +55,7 @@ export default function AddTaskForm({ addTask }: { addTask: any }) {
               <FormItem>
                 <FormLabel>Заголовок</FormLabel>
                 <FormControl>
-                  <Input
-                    placeholder=""
-                    {...field}
-                    className="bg-white"
-                    // onChange={(e) => setTitle(e.target.value)}
-                  />
+                  <Input placeholder="" {...field} className="bg-white" />
                 </FormControl>
                 {/* <FormDescription>This is your public display name.</FormDescription> */}
                 <FormMessage />
@@ -75,12 +70,7 @@ export default function AddTaskForm({ addTask }: { addTask: any }) {
               <FormItem className="mt-4">
                 <FormLabel>Примітка</FormLabel>
                 <FormControl>
-                  <Input
-                    placeholder=""
-                    {...field}
-                    className="bg-white h-28"
-                    // onChange={(e) => setContent(e.target.value)}
-                  />
+                  <Input placeholder="" {...field} className="bg-white h-28" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -89,7 +79,13 @@ export default function AddTaskForm({ addTask }: { addTask: any }) {
 
           {/* Buttons cancel/save */}
           <div className="flex justify-end gap-1 mt-6">
-            {/* <Button className="bg-red-500" type="submit">
+            <Button
+              className="bg-red-500"
+              onClick={(e) => {
+                e.preventDefault()
+                form.reset()
+              }}
+            >
               <svg
                 width="24"
                 height="24"
@@ -110,18 +106,9 @@ export default function AddTaskForm({ addTask }: { addTask: any }) {
                 </defs>
               </svg>
               Скасувати
-            </Button> */}
+            </Button>
 
-            <Button
-              className="bg-accent"
-              type="submit"
-              // onClick={() =>
-              //   stateChanger({
-              //     title: title,
-              //     content: content,
-              //   })
-              // }
-            >
+            <Button className="bg-accent" type="submit">
               <svg
                 width="24"
                 height="24"
