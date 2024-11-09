@@ -62,8 +62,7 @@ export default function Home() {
       <div className="container mx-auto max-w-[800px] h-auto bg-[#E2E2E2] p-4">
         <header>
           <h1 className="text-4xl wheight-bold">Список справ</h1>
-          <HeaderInput />
-          {/* <p className="text-xs">домашні справи робота фітнес</p> */}
+          {/* <HeaderInput /> */}
           <br />
         </header>
 

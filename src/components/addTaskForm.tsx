@@ -3,7 +3,6 @@ import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { useState } from 'react'
 
 // prettier-ignore
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage} from '@/components/ui/form'
@@ -48,11 +47,6 @@ export default function AddTaskForm({
   return (
     <div>
       <hr className="bg-[#999999] h-[2px] m-2" />
-      {/* <h2>Категорія</h2>
-      <p className="text-xs flex">
-        <span className="text-accent">домашні справи &nbsp; </span> робота фітнес
-      </p> */}
-
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="mt-6">
           <FormField

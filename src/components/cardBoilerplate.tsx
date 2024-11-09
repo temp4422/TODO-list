@@ -8,37 +8,14 @@ export default function CardBoilerplate(task: MyTaskType) {
   return (
     <Card data-id={task.id} className={cn(`${task.active ? 'opacity-100' : 'opacity-50'}`, 'mb-4')}>
       <CardHeader>
-        <CardDescription className="flex justify-end relative mb-2">
-          <button
-            className="hover:bg-gray-100 p-2 rounded-full"
-            onClick={() => {
-              task.deleteTask(task.id)
-            }}
-          >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M6 19C6 20.1 6.9 21 8 21H16C17.1 21 18 20.1 18 19V7H6V19ZM19 4H15.5L14.5 3H9.5L8.5 4H5V6H19V4Z"
-                fill="#333333"
-              />
-            </svg>
-          </button>
-        </CardDescription>
-        {/* <CardTitle className="text-xl">Купити продукти</CardTitle> */}
         <CardTitle className={cn(`${task.active ? '' : 'line-through'}`, 'text-xl')}>
           {task.title}
         </CardTitle>
       </CardHeader>
       <CardContent>
-        {/* <p>Скласти список необхідних продуктів та відвідати магазин.</p> */}
         <p className={cn(`${task.active ? '' : 'line-through'}`)}>{task.content}</p>
       </CardContent>
-      <CardFooter>
+      <CardFooter className="flex justify-between">
         <Button
           className="bg-accent"
           onClick={() => {
@@ -59,6 +36,27 @@ export default function CardBoilerplate(task: MyTaskType) {
           </svg>
           {task.active ? 'Завершити' : 'Відновити'}
         </Button>
+        <CardDescription>
+          <button
+            className="hover:bg-gray-100 p-2 rounded-full"
+            onClick={() => {
+              task.deleteTask(task.id)
+            }}
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M6 19C6 20.1 6.9 21 8 21H16C17.1 21 18 20.1 18 19V7H6V19ZM19 4H15.5L14.5 3H9.5L8.5 4H5V6H19V4Z"
+                fill="#333333"
+              />
+            </svg>
+          </button>
+        </CardDescription>
       </CardFooter>
     </Card>
   )
