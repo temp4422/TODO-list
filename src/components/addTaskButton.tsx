@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button'
 import React from 'react'
 
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 export default function AddTaskButton({ formActivation }: any) {
   return (
     <div className="flex justify-end my-2">

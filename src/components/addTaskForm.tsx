@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input'
 // prettier-ignore
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from '@/components/ui/form'
 
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 export default function AddTaskForm({ addTask, formActivation }: any) {
   const formSchema = z.object({
     title: z.string().min(1, {
