@@ -1,10 +1,8 @@
 'use client'
-import HeaderInput from '@/components/HeaderInput'
 import CardBoilerplate from '@/components/CardBoilerplate'
 import AddTaskButton from '@/components/AddTaskButton'
 import AddTaskForm from '@/components/AddTaskForm'
 import { useState } from 'react'
-import { Button } from '@/components/ui/button'
 
 const sampleTaskList = [
   {
@@ -59,15 +57,13 @@ export default function Home() {
   }
   return (
     <>
-      <div className="container mx-auto max-w-[800px] h-auto bg-[#E2E2E2] p-4">
+      <div className="container mx-auto max-w-[800px] h-auto bg-[#E2E2E2] p-4 min-h-screen">
         <header>
           <h1 className="text-4xl wheight-bold">Список справ</h1>
-          {/* <HeaderInput /> */}
           <br />
         </header>
 
         <main>
-          {/* Cards container */}
           <ul id="cards">
             {taskList.map((card) => (
               <CardBoilerplate
