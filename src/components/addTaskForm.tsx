@@ -41,6 +41,7 @@ export default function AddTaskForm({
       content: values.content,
       active: true,
     })
+    form.reset()
     // ✅ This will be type-safe and validated.
   }
 
