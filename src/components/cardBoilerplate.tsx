@@ -33,7 +33,11 @@ export default function CardBoilerplate(card: MyCardType) {
             </svg>
           </button>
 
-          <button>
+          <button
+            onClick={() => {
+              card.deleteTask(card.id)
+            }}
+          >
             <svg
               width="24"
               height="24"
