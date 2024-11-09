@@ -5,7 +5,8 @@ const nextConfig: NextConfig = {
   output: 'export',
   // Optional: Change the output directory `out` -> `dist`
   distDir: 'docs',
-  /* config options here */
+  // Deploy a Next.js application under a sub-path of a domain
+  basePath: '/docs',
 }
 
 export default nextConfig
