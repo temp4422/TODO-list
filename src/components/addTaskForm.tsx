@@ -19,8 +19,8 @@ export default function AddTaskForm({
     title: z.string().min(1, {
       message: 'title must must not be empty.',
     }),
-    content: z.string().min(1, {
-      message: 'content must must not be empty.',
+    content: z.string().min(0, {
+      // message: 'content must must not be empty.',
     }),
   })
 
@@ -77,7 +77,7 @@ export default function AddTaskForm({
               <FormItem className="mt-4">
                 <FormLabel>Примітка</FormLabel>
                 <FormControl>
-                  <Input placeholder="" {...field} className="bg-white h-28" />
+                  <Input placeholder="" {...field} className="bg-white" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
