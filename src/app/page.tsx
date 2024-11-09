@@ -64,7 +64,6 @@ export default function Home() {
           <h1 className="text-4xl wheight-bold">Список справ</h1>
           <HeaderInput />
           {/* <p className="text-xs">домашні справи робота фітнес</p> */}
-          <hr className="bg-[#999999] h-[2px] m-2" />
           <br />
         </header>
 

@@ -1,3 +1,4 @@
+import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 // prettier-ignore
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
@@ -5,7 +6,7 @@ import { MyCardType } from '@/app/page'
 
 export default function CardBoilerplate(card: MyCardType) {
   return (
-    <Card data-id={card.id} className={card.active ? 'opacity-100 mb-4' : 'opacity-50 mb-4'}>
+    <Card data-id={card.id} className={cn(`${card.active ? 'opacity-100' : 'opacity-50'}`, 'mb-4')}>
       <CardHeader>
         <CardDescription className="flex justify-end relative mb-2">
           {/* <p className="absolute left-0 text-accent text-xs font-bold border-2 p-1 border-accent">
@@ -53,11 +54,13 @@ export default function CardBoilerplate(card: MyCardType) {
           </button>
         </CardDescription>
         {/* <CardTitle className="text-xl">Купити продукти</CardTitle> */}
-        <CardTitle className="text-xl">{card.title}</CardTitle>
+        <CardTitle className={cn(`${card.active ? '' : 'line-through'}`, 'text-xl')}>
+          {card.title}
+        </CardTitle>
       </CardHeader>
       <CardContent>
         {/* <p>Скласти список необхідних продуктів та відвідати магазин.</p> */}
-        <p>{card.content}</p>
+        <p className={cn(`${card.active ? '' : 'line-through'}`)}>{card.content}</p>
       </CardContent>
       <CardFooter>
         <Button
