@@ -8,7 +8,7 @@ import { useState } from 'react'
 // prettier-ignore
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage} from '@/components/ui/form'
 
-export default function AddTaskForm({ stateChanger }: { stateChanger: any }) {
+export default function AddTaskForm({ addTask }: { addTask: any }) {
   const formSchema = z.object({
     title: z.string().min(1, {
       message: 'title must must not be empty.',
@@ -29,9 +29,11 @@ export default function AddTaskForm({ stateChanger }: { stateChanger: any }) {
 
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
-    stateChanger({
+    addTask({
+      id: Number(Date.now()),
       title: values.title,
       content: values.content,
+      active: true,
     })
     // ✅ This will be type-safe and validated.
   }

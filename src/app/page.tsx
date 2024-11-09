@@ -4,6 +4,7 @@ import CardBoilerplate from '@/components/CardBoilerplate'
 import AddTaskButton from '@/components/AddTaskButton'
 import AddTaskForm from '@/components/AddTaskForm'
 import { useState } from 'react'
+import { Button } from '@/components/ui/button'
 
 const sampleTaskList = [
   {
@@ -23,12 +24,15 @@ const sampleTaskList = [
 export default function Home() {
   const [taskList, setTaskList] = useState(sampleTaskList)
 
-  const addTask = ({ title, content }: { title: string; content: string }) => {
+  const addTask = (
+    // prettier-ignore
+    { id, title, content, active }: { id: number; title: string; content: string, active: boolean }
+  ) => {
     const newTask = {
-      id: Number(Date.now()),
+      id: id,
       title: title,
       content: content,
-      active: true,
+      active: active,
     }
     setTaskList([...taskList, newTask])
   }
@@ -62,10 +66,12 @@ export default function Home() {
           <AddTaskButton />
 
           {/* Form for adding new task */}
-          <AddTaskForm stateChanger={addTask} />
+          <AddTaskForm addTask={addTask} />
         </main>
 
-        <footer></footer>
+        <footer>
+          <Button onClick={() => console.log(taskList[taskList.length - 1])}>click</Button>
+        </footer>
       </div>
     </>
   )
