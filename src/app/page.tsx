@@ -1,8 +1,8 @@
 'use client'
-import CardBoilerplate from '../components/CardBoilerplate'
-import AddTaskButton from '../components/AddTaskButton'
-import AddTaskForm from '../components/AddTaskForm'
 import { useState } from 'react'
+import CardBoilerplate from '../components/cardBoilerplate'
+import AddTaskButton from '@/components/addTaskButton'
+import AddTaskForm from '@/components/addTaskForm'
 
 const sampleTaskList = [
   {
