@@ -8,7 +8,13 @@ import { useState } from 'react'
 // prettier-ignore
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage} from '@/components/ui/form'
 
-export default function AddTaskForm({ addTask }: { addTask: any }) {
+export default function AddTaskForm({
+  addTask,
+  formActivation,
+}: {
+  addTask: any
+  formActivation: any
+}) {
   const formSchema = z.object({
     title: z.string().min(1, {
       message: 'title must must not be empty.',
@@ -84,6 +90,7 @@ export default function AddTaskForm({ addTask }: { addTask: any }) {
               onClick={(e) => {
                 e.preventDefault()
                 form.reset()
+                formActivation()
               }}
             >
               <svg

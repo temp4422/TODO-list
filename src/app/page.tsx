@@ -36,10 +36,10 @@ export default function Home() {
     setTaskList([...taskList, newTask])
   }
 
-  // const [activeForm, setActiveForm] = useState(false)
-  // const formActivation = (activeForm: boolean) => {
-  //   setActiveForm(activeForm)
-  // }
+  const [isActiveForm, setIsActiveForm] = useState(false)
+  const formActivation = () => {
+    setIsActiveForm(!isActiveForm)
+  }
   return (
     <>
       <div className="container mx-auto max-w-[800px] h-auto bg-[#E2E2E2] p-4">
@@ -66,15 +66,13 @@ export default function Home() {
           </ul>
 
           {/* Button for adding new task */}
-          <AddTaskButton />
+          {!isActiveForm && <AddTaskButton formActivation={formActivation} />}
 
           {/* Form for adding new task */}
-          <AddTaskForm addTask={addTask} />
+          {isActiveForm && <AddTaskForm addTask={addTask} formActivation={formActivation} />}
         </main>
 
-        <footer>
-          <Button onClick={() => console.log(taskList[taskList.length - 1])}>click</Button>
-        </footer>
+        <footer></footer>
       </div>
     </>
   )

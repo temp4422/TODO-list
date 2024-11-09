@@ -1,10 +1,10 @@
 import { Button } from '@/components/ui/button'
 import React from 'react'
 
-export default function AddTaskButton() {
+export default function AddTaskButton({ formActivation }: any) {
   return (
     <div className="flex justify-end my-2">
-      <Button className="bg-accent" onClick={() => console.log('OK')}>
+      <Button className="bg-accent" onClick={() => formActivation()}>
         <svg
           width="14"
           height="14"
