@@ -26,12 +26,17 @@ export type MyCardType = {
   title: string
   content: string
   active: boolean
+  deleteTask: (id: number) => void
 }
 
 export default function Home() {
   const [taskList, setTaskList] = useState(sampleTaskList)
   function addTask({ id, title, content, active }: MyCardType) {
     setTaskList([...taskList, { id, title, content, active }])
+  }
+
+  function handleDeleteTask(id: number) {
+    setTaskList(taskList.filter((task) => task.id !== id))
   }
 
   const [isActiveForm, setIsActiveForm] = useState(false)
@@ -59,6 +64,7 @@ export default function Home() {
                 title={card.title}
                 content={card.content}
                 active={card.active}
+                deleteTask={handleDeleteTask}
               />
             ))}
           </ul>
