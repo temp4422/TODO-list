@@ -30,12 +30,12 @@ export type MyCardType = {
 
 export default function Home() {
   const [taskList, setTaskList] = useState(sampleTaskList)
-  const addTask = ({ id, title, content, active }: MyCardType) => {
+  function addTask({ id, title, content, active }: MyCardType) {
     setTaskList([...taskList, { id, title, content, active }])
   }
 
   const [isActiveForm, setIsActiveForm] = useState(false)
-  const formActivation = () => {
+  function formActivation() {
     setIsActiveForm(!isActiveForm)
   }
   return (
