@@ -21,19 +21,17 @@ const sampleTaskList = [
   },
 ]
 
+export type MyCardType = {
+  id: number
+  title: string
+  content: string
+  active: boolean
+}
+
 export default function Home() {
   const [taskList, setTaskList] = useState(sampleTaskList)
-  const addTask = (
-    // prettier-ignore
-    { id, title, content, active }: { id: number; title: string; content: string, active: boolean }
-  ) => {
-    const newTask = {
-      id: id,
-      title: title,
-      content: content,
-      active: active,
-    }
-    setTaskList([...taskList, newTask])
+  const addTask = ({ id, title, content, active }: MyCardType) => {
+    setTaskList([...taskList, { id, title, content, active }])
   }
 
   const [isActiveForm, setIsActiveForm] = useState(false)

@@ -1,16 +1,9 @@
 import { Button } from '@/components/ui/button'
 // prettier-ignore
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { MyCardType } from '@/app/page'
 
-type Card = {
-  id: number
-  title: string
-  content: string
-  active: boolean
-  // category: string
-}
-
-export default function CardBoilerplate(card: Card) {
+export default function CardBoilerplate(card: MyCardType) {
   return (
     <Card data-id={card.id} className={card.active ? 'opacity-100 mb-4' : 'opacity-50 mb-4'}>
       <CardHeader>
