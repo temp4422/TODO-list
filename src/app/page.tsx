@@ -23,6 +23,16 @@ const sampleTaskList = [
 export default function Home() {
   const [taskList, setTaskList] = useState(sampleTaskList)
 
+  const addTask = ({ title, content }: { title: string; content: string }) => {
+    const newTask = {
+      id: Number(Date.now()),
+      title: title,
+      content: content,
+      active: true,
+    }
+    setTaskList([...taskList, newTask])
+  }
+
   return (
     <>
       <div className="container mx-auto max-w-[800px] h-auto bg-[#E2E2E2] p-4">
@@ -52,7 +62,7 @@ export default function Home() {
           <AddTaskButton />
 
           {/* Form for adding new task */}
-          <AddTaskForm />
+          <AddTaskForm stateChanger={addTask} />
         </main>
 
         <footer></footer>

@@ -3,33 +3,39 @@ import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { useState } from 'react'
 
 // prettier-ignore
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage} from '@/components/ui/form'
 
-export default function AddTaskForm() {
+export default function AddTaskForm({ stateChanger }: { stateChanger: any }) {
   const formSchema = z.object({
-    username: z.string().min(2, {
-      message: 'Username must be at least 2 characters.',
+    title: z.string().min(1, {
+      message: 'title must must not be empty.',
+    }),
+    content: z.string().min(1, {
+      message: 'content must must not be empty.',
     }),
   })
 
-  // // 1. Define your form.
+  // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: '',
+      title: '',
+      content: '',
     },
   })
 
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
+    stateChanger({
+      title: values.title,
+      content: values.content,
+    })
     // ✅ This will be type-safe and validated.
-    console.log(values)
   }
 
-  // const form = useForm()
   return (
     <div className="">
       <hr className="bg-[#999999] h-[2px] m-2" />
@@ -42,12 +48,17 @@ export default function AddTaskForm() {
         <form onSubmit={form.handleSubmit(onSubmit)} className="mt-6">
           <FormField
             control={form.control}
-            name="username"
+            name="title"
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Заголовок</FormLabel>
                 <FormControl>
-                  <Input placeholder="" {...field} className="bg-white" />
+                  <Input
+                    placeholder=""
+                    {...field}
+                    className="bg-white"
+                    // onChange={(e) => setTitle(e.target.value)}
+                  />
                 </FormControl>
                 {/* <FormDescription>This is your public display name.</FormDescription> */}
                 <FormMessage />
@@ -57,12 +68,17 @@ export default function AddTaskForm() {
 
           <FormField
             control={form.control}
-            name="username"
+            name="content"
             render={({ field }) => (
               <FormItem className="mt-4">
                 <FormLabel>Примітка</FormLabel>
                 <FormControl>
-                  <Input placeholder="" {...field} className="bg-white h-28" />
+                  <Input
+                    placeholder=""
+                    {...field}
+                    className="bg-white h-28"
+                    // onChange={(e) => setContent(e.target.value)}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -71,7 +87,7 @@ export default function AddTaskForm() {
 
           {/* Buttons cancel/save */}
           <div className="flex justify-end gap-1 mt-6">
-            <Button className="bg-red-500" type="submit">
+            {/* <Button className="bg-red-500" type="submit">
               <svg
                 width="24"
                 height="24"
@@ -92,8 +108,18 @@ export default function AddTaskForm() {
                 </defs>
               </svg>
               Скасувати
-            </Button>
-            <Button className="bg-accent" type="submit">
+            </Button> */}
+
+            <Button
+              className="bg-accent"
+              type="submit"
+              // onClick={() =>
+              //   stateChanger({
+              //     title: title,
+              //     content: content,
+              //   })
+              // }
+            >
               <svg
                 width="24"
                 height="24"
