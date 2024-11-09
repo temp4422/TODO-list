@@ -59,8 +59,7 @@ export default function CardBoilerplate(card: MyCardType) {
         <Button
           className="bg-accent"
           onClick={() => {
-            console.log(card.id)
-            card.deleteTask(card.id)
+            card.setActive(card.id)
           }}
         >
           <svg
