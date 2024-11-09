@@ -1,8 +1,8 @@
 'use client'
 import { useState } from 'react'
-import CardBoilerplate from '../components/cardBoilerplate'
 import AddTaskButton from '@/components/addTaskButton'
-import AddTaskForm from '@/components/addTaskForm'
+import AddTaskForm from '@/components/AddTaskForm'
+import CardBoilerplate from '@/components/cardBoilerplate'
 
 const sampleTaskList = [
   {
@@ -67,7 +67,7 @@ export default function Home() {
           <ul id="cards">
             {taskList.map((card) => (
               <CardBoilerplate
-                key={card.id}
+    @        key={card.id}
                 id={card.id}
                 title={card.title}
                 content={card.content}
